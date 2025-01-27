@@ -1,255 +1,253 @@
 const questions = [
-    // Original questions
     {
-        text: "Your advisor suggests a new research direction. Do you...",
-        choices: ["Embrace the change", "Stick to current path"],
+        text: "Your child shows interest in an expensive hobby. Do you...",
+        choices: ["Support the new interest", "Suggest a more affordable activity"],
         consequences: [
-            { stress: 20, productivity: -10, advisorApproval: 30, knowledge: 10, funding: 0, publications: 0, workLifeBalance: -10, networkingScore: 0, mentalHealth: -5, researchProgress: 5 },
-            { stress: 10, productivity: 10, advisorApproval: -20, knowledge: 5, funding: 0, publications: 5, workLifeBalance: 0, networkingScore: 0, mentalHealth: 0, researchProgress: 10 }
+            { parentStress: 15, childHappiness: 25, parentingConfidence: 5, childEducation: 10, finances: -30, familyHarmony: 10, workLifeBalance: -10, childSocialSkills: 15, parentMentalHealth: -5, childDevelopment: 20 },
+            { parentStress: -5, childHappiness: -15, parentingConfidence: -5, childEducation: 0, finances: 10, familyHarmony: -5, workLifeBalance: 5, childSocialSkills: -10, parentMentalHealth: 5, childDevelopment: -5 }
         ],
         nextQuestion: [1, 2]
     },
-    {
-        text: "A conference deadline is approaching. Do you...",
-        choices: ["Pull all-nighters", "Submit to a later conference"],
-        consequences: [
-            { stress: 40, productivity: 20, advisorApproval: 10, knowledge: 5, funding: 0, publications: 15, workLifeBalance: -30, networkingScore: 10, mentalHealth: -20, researchProgress: 15 },
-            { stress: -10, productivity: -5, advisorApproval: -15, knowledge: 0, funding: 0, publications: -10, workLifeBalance: 10, networkingScore: -5, mentalHealth: 10, researchProgress: -5 }
-        ],
-        nextQuestion: [3, 4]
-    },
-    {
-        text: "Department seminar conflicts with your experiment time. Do you...",
-        choices: ["Attend seminar", "Continue experiment"],
-        consequences: [
-            { stress: 5, productivity: -10, advisorApproval: 15, knowledge: 20, funding: 0, publications: 0, workLifeBalance: 0, networkingScore: 15, mentalHealth: 5, researchProgress: -5 },
-            { stress: 10, productivity: 20, advisorApproval: -5, knowledge: -5, funding: 0, publications: 5, workLifeBalance: -5, networkingScore: -10, mentalHealth: -5, researchProgress: 15 }
-        ],
-        nextQuestion: [5, 6]
-    },
-    {
-        text: "Your laptop crashes before backing up work. Do you...",
-        choices: ["Attempt data recovery", "Redo the work"],
-        consequences: [
-            { stress: 30, productivity: -20, advisorApproval: 0, knowledge: 5, funding: -5, publications: 0, workLifeBalance: -15, networkingScore: 0, mentalHealth: -15, researchProgress: -10 },
-            { stress: 25, productivity: -15, advisorApproval: 5, knowledge: 10, funding: 0, publications: -5, workLifeBalance: -20, networkingScore: 0, mentalHealth: -10, researchProgress: -15 }
-        ],
-        nextQuestion: [7, 8]
-    },
-    {
-        text: "A fellow grad student needs help with their project. Do you...",
-        choices: ["Help them out", "Focus on your work"],
-        consequences: [
-            { stress: 10, productivity: -10, advisorApproval: 5, knowledge: 15, funding: 0, publications: 0, workLifeBalance: -5, networkingScore: 20, mentalHealth: 5, researchProgress: -5 },
-            { stress: -5, productivity: 15, advisorApproval: 0, knowledge: 0, funding: 0, publications: 5, workLifeBalance: 5, networkingScore: -15, mentalHealth: -5, researchProgress: 10 }
-        ],
-        nextQuestion: [9, 10]
-    },
-    {
-        text: "You receive harsh peer review comments. Do you...",
-        choices: ["Take a break then revise", "Immediately address all points"],
-        consequences: [
-            { stress: -10, productivity: 5, advisorApproval: 0, knowledge: 10, funding: 0, publications: 5, workLifeBalance: 10, networkingScore: 0, mentalHealth: 15, researchProgress: 5 },
-            { stress: 25, productivity: 15, advisorApproval: 10, knowledge: 5, funding: 0, publications: 10, workLifeBalance: -15, networkingScore: 0, mentalHealth: -10, researchProgress: 10 }
-        ],
-        nextQuestion: [11, 12]
-    },
-    {
-        text: "A funding opportunity appears but deadline is tight. Do you...",
-        choices: ["Apply with current research", "Skip this opportunity"],
-        consequences: [
-            { stress: 20, productivity: -5, advisorApproval: 15, knowledge: 5, funding: 30, publications: 0, workLifeBalance: -15, networkingScore: 10, mentalHealth: -10, researchProgress: 5 },
-            { stress: -5, productivity: 10, advisorApproval: -10, knowledge: 0, funding: -20, publications: 0, workLifeBalance: 10, networkingScore: -5, mentalHealth: 5, researchProgress: 5 }
-        ],
-        nextQuestion: [13, 14]
-    },
-    {
-        text: "Your research equipment malfunctions. Do you...",
-        choices: ["Try to fix it yourself", "Wait for technical support"],
-        consequences: [
-            { stress: 25, productivity: -15, advisorApproval: 5, knowledge: 15, funding: -10, publications: 0, workLifeBalance: -10, networkingScore: 0, mentalHealth: -10, researchProgress: -5 },
-            { stress: 10, productivity: -20, advisorApproval: 0, knowledge: 5, funding: -5, publications: -5, workLifeBalance: 5, networkingScore: 0, mentalHealth: 5, researchProgress: -15 }
-        ],
-        nextQuestion: [15, 16]
-    },
-    {
-        text: "A prestigious summer school opportunity arises. Do you...",
-        choices: ["Apply and attend", "Focus on current research"],
-        consequences: [
-            { stress: 15, productivity: -10, advisorApproval: 10, knowledge: 25, funding: -5, publications: 0, workLifeBalance: -10, networkingScore: 25, mentalHealth: 5, researchProgress: -5 },
-            { stress: -5, productivity: 15, advisorApproval: -5, knowledge: 5, funding: 0, publications: 5, workLifeBalance: 5, networkingScore: -15, mentalHealth: 0, researchProgress: 10 }
-        ],
-        nextQuestion: [17, 18]
-    },
-    {
-        text: "Your paper gets rejected. Do you...",
-        choices: ["Submit to another journal", "Major revision first"],
-        consequences: [
-            { stress: 15, productivity: 5, advisorApproval: -5, knowledge: 0, funding: 0, publications: -5, workLifeBalance: -5, networkingScore: 0, mentalHealth: -10, researchProgress: 0 },
-            { stress: 20, productivity: 10, advisorApproval: 10, knowledge: 15, funding: 0, publications: 10, workLifeBalance: -15, networkingScore: 0, mentalHealth: -5, researchProgress: 15 }
-        ],
-        nextQuestion: [19, 20]
-    },
-    {
-        text: "A collaboration opportunity presents itself. Do you...",
-        choices: ["Join the collaboration", "Work independently"],
-        consequences: [
-            { stress: 10, productivity: -5, advisorApproval: 15, knowledge: 20, funding: 10, publications: 15, workLifeBalance: -10, networkingScore: 25, mentalHealth: 5, researchProgress: 10 },
-            { stress: -5, productivity: 10, advisorApproval: -5, knowledge: 5, funding: 0, publications: 5, workLifeBalance: 5, networkingScore: -15, mentalHealth: 0, researchProgress: 5 }
-        ],
-        nextQuestion: [21, 22]
-    },
-    {
-        text: "Department needs teaching assistants. Do you...",
-        choices: ["Take the position", "Decline the offer"],
-        consequences: [
-            { stress: 20, productivity: -15, advisorApproval: 5, knowledge: 10, funding: 15, publications: -5, workLifeBalance: -20, networkingScore: 10, mentalHealth: -10, researchProgress: -10 },
-            { stress: -5, productivity: 10, advisorApproval: -5, knowledge: 0, funding: -15, publications: 5, workLifeBalance: 10, networkingScore: -5, mentalHealth: 5, researchProgress: 10 }
-        ],
-        nextQuestion: [23, 24]
-    },
-    {
-        text: "Your research hits a major roadblock. Do you...",
-        choices: ["Pivot approach", "Push through"],
-        consequences: [
-            { stress: 15, productivity: -10, advisorApproval: 5, knowledge: 15, funding: 0, publications: -5, workLifeBalance: -5, networkingScore: 0, mentalHealth: -5, researchProgress: -10 },
-            { stress: 25, productivity: 5, advisorApproval: 10, knowledge: 10, funding: 0, publications: 5, workLifeBalance: -15, networkingScore: 0, mentalHealth: -15, researchProgress: 5 }
-        ],
-        nextQuestion: [25, 26]
-    },
-    {
-        text: "A weekend workshop conflicts with family event. Do you...",
-        choices: ["Attend workshop", "Choose family event"],
-        consequences: [
-            { stress: 15, productivity: 10, advisorApproval: 10, knowledge: 15, funding: 0, publications: 5, workLifeBalance: -20, networkingScore: 15, mentalHealth: -10, researchProgress: 10 },
-            { stress: -10, productivity: -5, advisorApproval: -5, knowledge: 0, funding: 0, publications: 0, workLifeBalance: 20, networkingScore: -5, mentalHealth: 15, researchProgress: -5 }
-        ],
-        nextQuestion: [27, 28]
-    },
-    {
-        text: "You find an error in your published work. Do you...",
-        choices: ["Publish correction immediately", "Discuss with advisor first"],
-        consequences: [
-            { stress: 30, productivity: -10, advisorApproval: -10, knowledge: 5, funding: 0, publications: -5, workLifeBalance: -10, networkingScore: -5, mentalHealth: -15, researchProgress: -5 },
-            { stress: 20, productivity: -5, advisorApproval: 10, knowledge: 10, funding: 0, publications: -5, workLifeBalance: -5, networkingScore: 0, mentalHealth: -5, researchProgress: 0 }
-        ],
-        nextQuestion: [29, 30]
-    },
-    {
-        text: "A senior researcher offers mentorship. Do you...",
-        choices: ["Accept mentorship", "Maintain independence"],
-        consequences: [
-            { stress: 5, productivity: 5, advisorApproval: 0, knowledge: 20, funding: 10, publications: 10, workLifeBalance: -10, networkingScore: 20, mentalHealth: 5, researchProgress: 15 },
-            { stress: 0, productivity: 10, advisorApproval: 5, knowledge: 5, funding: 0, publications: 5, workLifeBalance: 5, networkingScore: -10, mentalHealth: 0, researchProgress: 5 }
-        ],
-        nextQuestion: [31, 32]
-    },
-    {
-        text: "Department requests committee participation. Do you...",
-        choices: ["Join committee", "Politely decline"],
-        consequences: [
-            { stress: 15, productivity: -15, advisorApproval: 10, knowledge: 5, funding: 0, publications: -5, workLifeBalance: -15, networkingScore: 15, mentalHealth: -5, researchProgress: -10 },
-            { stress: -5, productivity: 10, advisorApproval: -5, knowledge: 0, funding: 0, publications: 5, workLifeBalance: 10, networkingScore: -10, mentalHealth: 5, researchProgress: 10 }
-        ],
-        nextQuestion: [33, 34]
-    },
-    {
-        text: "You're offered industry internship. Do you...",
-        choices: ["Take the internship", "Focus on academia"],
-        consequences: [
-            { stress: 20, productivity: -10, advisorApproval: -10, knowledge: 15, funding: 20, publications: -10, workLifeBalance: -15, networkingScore: 20, mentalHealth: 0, researchProgress: -15 },
-            { stress: 0, productivity: 15, advisorApproval: 15, knowledge: 10, funding: -5, publications: 10, workLifeBalance: 5, networkingScore: -5, mentalHealth: 5, researchProgress: 15 }
-        ],
-        nextQuestion: [35, 36]
-    },
-    {
-        text: "Your research could have commercial potential. Do you...",
-        choices: ["Pursue patent", "Focus on publication"],
-        consequences: [
-            { stress: 25, productivity: -15, advisorApproval: 10, knowledge: 10, funding: 25, publications: -10, workLifeBalance: -20, networkingScore: 15, mentalHealth: -10, researchProgress: -5 },
-            { stress: 10, productivity: 10, advisorApproval: 5, knowledge: 5, funding: -5, publications: 15, workLifeBalance: 5, networkingScore: 5, mentalHealth: 5, researchProgress: 10 }
-        ],
-        nextQuestion: [37, 38]
-    },
-    {
-        text: "A competitive fellowship opens up. Do you...",
-        choices: ["Apply for it", "Skip this cycle"],
-        consequences: [
-            { stress: 20, productivity: -10, advisorApproval: 15, knowledge: 5, funding: 30, publications: 0, workLifeBalance: -15, networkingScore: 10, mentalHealth: -10, researchProgress: -5 },
-            { stress: -5, productivity: 10, advisorApproval: -10, knowledge: 0, funding: -20, publications: 5, workLifeBalance: 10, networkingScore: -5, mentalHealth: 5, researchProgress: 10 }
-        ],
-        nextQuestion: [39, 40]
-    },
-    {
-        text: "You're invited to give a talk abroad. Do you...",
-        choices: ["Accept invitation", "Decline politely"],
-        consequences: [
-            { stress: 25, productivity: -15, advisorApproval: 20, knowledge: 15, funding: -10, publications: 5, workLifeBalance: -20, networkingScore: 25, mentalHealth: -5, researchProgress: -10 },
-            { stress: -5, productivity: 10, advisorApproval: -10, knowledge: 0, funding: 0, publications: 0, workLifeBalance: 10, networkingScore: -15, mentalHealth: 5, researchProgress: 10 }
-        ],
-        nextQuestion: [41, 42]
-    },
-    {
-        text: "A journal requests you to review a paper. Do you...",
-        choices: ["Accept review", "Decline review"],
-        consequences: [
-            { stress: 15, productivity: -10, advisorApproval: 10, knowledge: 15, funding: 0, publications: 0, workLifeBalance: -10, networkingScore: 10, mentalHealth: -5, researchProgress: -5 },
-            { stress: -5, productivity: 10, advisorApproval: -5, knowledge: -5, funding: 0, publications: 0, workLifeBalance: 5, networkingScore: -5, mentalHealth: 5, researchProgress: 5 }
-        ],
-        nextQuestion: [43, 44]
-    },
-    {
-        text: "Your mental health is declining. Do you...",
-        choices: ["Seek professional help", "Push through it"],
-        consequences: [
-            { stress: -20, productivity: -10, advisorApproval: 5, knowledge: 5, funding: 0, publications: -5, workLifeBalance: 15, networkingScore: 0, mentalHealth: 25, researchProgress: -5 },
-            { stress: 30, productivity: 5, advisorApproval: 0, knowledge: 0, funding: 0, publications: 5, workLifeBalance: -20, networkingScore: -5, mentalHealth: -30, researchProgress: 5 }
-        ],
-        nextQuestion: [45, 46]
-    },
-    {
-        text: "A potential industry job opens up. Do you...",
-        choices: ["Explore opportunity", "Stay focused on PhD"],
-        consequences: [
-            { stress: 15, productivity: -15, advisorApproval: -10, knowledge: 10, funding: 0, publications: -5, workLifeBalance: -10, networkingScore: 15, mentalHealth: -5, researchProgress: -10 },
-            { stress: 5, productivity: 10, advisorApproval: 15, knowledge: 5, funding: 0, publications: 10, workLifeBalance: 5, networkingScore: -5, mentalHealth: 5, researchProgress: 15 }
-        ],
-        nextQuestion: [47, 48]
-    },
-    {
-        text: "Your research could help a social cause. Do you...",
-        choices: ["Pivot towards impact", "Maintain current focus"],
-        consequences: [
-            { stress: 20, productivity: -5, advisorApproval: 5, knowledge: 15, funding: 10, publications: 5, workLifeBalance: -15, networkingScore: 20, mentalHealth: 10, researchProgress: -5 },
-            { stress: 5, productivity: 10, advisorApproval: 0, knowledge: 5, funding: 0, publications: 10, workLifeBalance: 5, networkingScore: -10, mentalHealth: -5, researchProgress: 10 }
-        ],
-        nextQuestion: [49, 50]
-    },
-    {
-        text: "A prestigious lab invites collaboration. Do you...",
-        choices: ["Accept collaboration", "Maintain independence"],
-        consequences: [
-            { stress: 25, productivity: 10, advisorApproval: 20, knowledge: 20, funding: 15, publications: 15, workLifeBalance: -20, networkingScore: 25, mentalHealth: -10, researchProgress: 15 },
-            { stress: 5, productivity: 5, advisorApproval: -10, knowledge: 5, funding: -5, publications: 5, workLifeBalance: 10, networkingScore: -15, mentalHealth: 5, researchProgress: 5 }
-        ],
-        nextQuestion: [51, 52]
-    },
-    {
-        text: "Congratulations! You've successfully completed your PhD! Want to try another path?",
-        choices: ["Start New Game", "Exit"],
-        consequences: [
-            { stress: 0, productivity: 0, advisorApproval: 0, knowledge: 0, funding: 0, publications: 0, workLifeBalance: 0, networkingScore: 0, mentalHealth: 0, researchProgress: 0 },
-            { stress: 0, productivity: 0, advisorApproval: 0, knowledge: 0, funding: 0, publications: 0, workLifeBalance: 0, networkingScore: 0, mentalHealth: 0, researchProgress: 0 }
-        ],
-        nextQuestion: [0, -1]
-    },
-    {
-        text: "Game Over! Your grad school journey has ended. Play again?",
-        choices: ["Yes", "No"],
-        consequences: [
-            { stress: 0, productivity: 0, advisorApproval: 0, knowledge: 0, funding: 0, publications: 0, workLifeBalance: 0, networkingScore: 0, mentalHealth: 0, researchProgress: 0 },
-            { stress: 0, productivity: 0, advisorApproval: 0, knowledge: 0, funding: 0, publications: 0, workLifeBalance: 0, networkingScore: 0, mentalHealth: 0, researchProgress: 0 }
-        ],
-        nextQuestion: [0, -1]
-    }
-];
+{
+    text: "Your child is having trouble with a subject in school. Do you...",
+    choices: ["Hire a tutor", "Help them study yourself"],
+    consequences: [
+        { parentStress: 15, childHappiness: 5, parentingConfidence: 15, childEducation: 25, finances: -20, familyHarmony: 5, workLifeBalance: -5, childSocialSkills: 5, parentMentalHealth: 0, childDevelopment: 20 },
+        { parentStress: -5, childHappiness: -5, parentingConfidence: 5, childEducation: 15, finances: 0, familyHarmony: 10, workLifeBalance: -15, childSocialSkills: 0, parentMentalHealth: -10, childDevelopment: 10 }
+    ],
+    nextQuestion: [29, 30]
+},
+{
+    text: "Your child wants to join a new sports team. Do you...",
+    choices: ["Encourage them to try", "Suggest they stick with their current activities"],
+    consequences: [
+        { parentStress: -15, childHappiness: 20, parentingConfidence: 10, childEducation: 0, finances: -50, familyHarmony: 5, workLifeBalance: -10, childSocialSkills: 15, parentMentalHealth: -5, childDevelopment: 10 },
+        { parentStress: 10, childHappiness: -10, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 5, childSocialSkills: -5, parentMentalHealth: 5, childDevelopment: 0 }
+    ],
+    nextQuestion: [31, 32]
+},
+{
+    text: "Your child is invited to a birthday party on the same day as a family event. Do you...",
+    choices: ["Let them go to the party", "Prioritize the family event"],
+    consequences: [
+        { parentStress: 5, childHappiness: 25, parentingConfidence: 0, childEducation: 0, finances: -15, familyHarmony: -10, workLifeBalance: -5, childSocialSkills: 20, parentMentalHealth: -5, childDevelopment: 10 },
+        { parentStress: -10, childHappiness: -20, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 15, workLifeBalance: 10, childSocialSkills: -10, parentMentalHealth: 5, childDevelopment: 5 }
+    ],
+    nextQuestion: [33, 34]
+},
+{
+    text: "Your child is upset about a friend moving away. Do you...",
+    choices: ["Help them cope with the loss", "Encourage them to make new friends"],
+    consequences: [
+        { parentStress: 5, childHappiness: 15, parentingConfidence: 10, childEducation: 0, finances: 0, familyHarmony: 15, workLifeBalance: -5, childSocialSkills: 10, parentMentalHealth: 5, childDevelopment: 15 },
+        { parentStress: -5, childHappiness: 5, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 5, workLifeBalance: 0, childSocialSkills: 20, parentMentalHealth: 0, childDevelopment: 10 }
+    ],
+    nextQuestion: [35, 36]
+},
+{
+    text: "Your child is afraid of the dark. Do you...",
+    choices: ["Get a night light", "Encourage them to face their fears"],
+    consequences: [
+        { parentStress: -5, childHappiness: 15, parentingConfidence: 5, childEducation: 0, finances: -10, familyHarmony: 5, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: 5, childDevelopment: 10 },
+        { parentStress: 10, childHappiness: -5, parentingConfidence: 10, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 0, childSocialSkills: 5, parentMentalHealth: -5, childDevelopment: 5 }
+    ],
+    nextQuestion: [37, 38]
+},
+{
+    text: "Your child wants to stay up late for a special event. Do you...",
+    choices: ["Allow it this time", "Stick to bedtime rules"],
+    consequences: [
+        { parentStress: -5, childHappiness: 20, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 10, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: 0, childDevelopment: 5 },
+        { parentStress: 10, childHappiness: -10, parentingConfidence: 10, childEducation: 0, finances: 0, familyHarmony: -5, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: -5, childDevelopment: 0 }
+    ],
+    nextQuestion: [39, 40]
+},
+{
+    text: "Your child is being teased at school. Do you...",
+    choices: ["Talk to the teacher", "Encourage them to stand up for themselves"],
+    consequences: [
+        { parentStress: -15, childHappiness: -10, parentingConfidence: 10, childEducation: 0, finances: 0, familyHarmony: -5, workLifeBalance: -10, childSocialSkills: 5, parentMentalHealth: -10, childDevelopment: 5 },
+        { parentStress: 5, childHappiness: 5, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 0, childSocialSkills: 10, parentMentalHealth: 0, childDevelopment: 5 }
+    ],
+    nextQuestion: [41, 42]
+},
+{
+    text: "Your child wants to quit an activity they've been doing for a while. Do you...",
+    choices: ["Support their decision", "Encourage them to finish the season"],
+    consequences: [
+        { parentStress: -5, childHappiness: 15, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 5, workLifeBalance: 0, childSocialSkills: 10, parentMentalHealth: 5, childDevelopment: 10 },
+        { parentStress: 10, childHappiness: -10, parentingConfidence: 10, childEducation: 0, finances: 0, familyHarmony: -5, workLifeBalance: 0, childSocialSkills: 5, parentMentalHealth: -5, childDevelopment: 5 }
+    ],
+    nextQuestion: [43, 44]
+},
+{
+    text: "Your child is struggling with a new sibling. Do you...",
+    choices: ["Spend one-on-one time with them", "Encourage them to bond with the sibling"],
+    consequences: [
+        { parentStress: -20, childHappiness: 10, parentingConfidence: 10, childEducation: 0, finances: 0, familyHarmony: 5, workLifeBalance: -10, childSocialSkills: 5, parentMentalHealth: -5, childDevelopment: 10 },
+        { parentStress: 15, childHappiness: 5, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 0, childSocialSkills: 10, parentMentalHealth: 0, childDevelopment: 5 }
+    ],
+    nextQuestion: [45, 46]
+},
+{
+    text: "Your child wants to go to a friend's house without you. Do you...",
+    choices: ["Let them go", "Insist on accompanying them"],
+    consequences: [
+        { parentStress: 10, childHappiness: 20, parentingConfidence: 10, childEducation: 0, finances: 0, familyHarmony: 5, workLifeBalance: 0, childSocialSkills: 15, parentMentalHealth: 5, childDevelopment: 10 },
+        { parentStress: -15, childHappiness: -5, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: -5, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: -5, childDevelopment: 5 }
+    ],
+    nextQuestion: [47, 48]
+},
+{
+    text: "Your child is not eating well. Do you...",
+    choices: ["Consult a nutritionist", "Try to improve meals at home"],
+    consequences: [
+        { parentStress: -20, childHappiness: -10, parentingConfidence: 10, childEducation: 0, finances: -50, familyHarmony: 0, workLifeBalance: -10, childSocialSkills: 0, parentMentalHealth: -10, childDevelopment: 5 },
+        { parentStress: 15, childHappiness: 5, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 5, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: 0, childDevelopment: 5 }
+    ],
+    nextQuestion: [49, 50]
+},
+{
+    text: "Your child is interested in a new hobby. Do you...",
+    choices: ["Encourage them to pursue it", "Suggest they focus on schoolwork"],
+    consequences: [
+        { parentStress: 10, childHappiness: 20, parentingConfidence: 10, childEducation: 0, finances: -30, familyHarmony: 5, workLifeBalance: 0, childSocialSkills: 10, parentMentalHealth: 5, childDevelopment: 15 },
+        { parentStress: -15, childHappiness: -10, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: -5, childDevelopment: 5 }
+    ],
+    nextQuestion: [51, 52]
+},
+{
+    text: "Your child is having nightmares. Do you...",
+    choices: ["Talk to them about it", "Ignore it and hope it passes"],
+    consequences: [
+        { parentStress: -15, childHappiness: 10, parentingConfidence: 10, childEducation: 0, finances: 0, familyHarmony: 5, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: 5, childDevelopment: 10 },
+        { parentStress: 20, childHappiness: -5, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: -5, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: -5, childDevelopment: 5 }
+    ],
+    nextQuestion: [53, 54]
+},
+{
+    text: "Your child wants to go to a concert with friends. Do you...",
+    choices: ["Let them go", "Say they are too young"],
+    consequences: [
+        { parentStress: 10, childHappiness: 20, parentingConfidence: 10, childEducation: 0, finances: -50, familyHarmony: 5, workLifeBalance: 0, childSocialSkills: 15, parentMentalHealth: 5, childDevelopment: 10 },
+        { parentStress: -15, childHappiness: -10, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: -5, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: -5, childDevelopment: 5 }
+    ],
+    nextQuestion: [55, 56]
+},
+{
+    text: "Your child is upset about a bad grade. Do you...",
+    choices: ["Help them study harder", "Encourage them to try again next time"],
+    consequences: [
+        { parentStress: 15, childHappiness: 5, parentingConfidence: 10, childEducation: 20, finances: 0, familyHarmony: 5, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: 5, childDevelopment: 10 },
+        { parentStress: -10, childHappiness: 10, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: 0, childDevelopment: 5 }
+    ],
+    nextQuestion: [57, 58]
+},
+{
+    text: "Your child wants to change schools. Do you...",
+    choices: ["Support their decision", "Encourage them to stay"],
+    consequences: [
+        { parentStress: -20, childHappiness: 15, parentingConfidence: 10, childEducation: 0, finances: -100, familyHarmony: 5, workLifeBalance: -10, childSocialSkills: 10, parentMentalHealth: -5, childDevelopment: 15 },
+        { parentStress: 15, childHappiness: -10, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: 0, childDevelopment: 5 }
+    ],
+    nextQuestion: [59, 60]
+},
+{
+    text: "Your child is interested in a new video game. Do you...",
+    choices: ["Allow them to play", "Set limits on screen time"],
+    consequences: [
+        { parentStress: 15, childHappiness: 20, parentingConfidence: -5, childEducation: -10, finances: -10, familyHarmony: -5, workLifeBalance: 10, childSocialSkills: -10, parentMentalHealth: -5, childDevelopment: -10 },
+        { parentStress: -20, childHappiness: -15, parentingConfidence: 10, childEducation: 10, finances: 0, familyHarmony: 5, workLifeBalance: -5, childSocialSkills: 5, parentMentalHealth: 5, childDevelopment: 10 }
+    ],
+    nextQuestion: [61, 62]
+},
+{
+    text: "Your child wants to go on a school trip. Do you...",
+    choices: ["Allow them to go", "Express concerns about safety"],
+    consequences: [
+        { parentStress: -15, childHappiness: 20, parentingConfidence: 10, childEducation: 0, finances: -100, familyHarmony: 5, workLifeBalance: 0, childSocialSkills: 15, parentMentalHealth: 5, childDevelopment: 10 },
+        { parentStress: 20, childHappiness: -10, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: -5, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: -5, childDevelopment: 5 }
+    ],
+    nextQuestion: [63, 64]
+},
+{
+    text: "Your child is feeling overwhelmed with schoolwork. Do you...",
+    choices: ["Help them prioritize tasks", "Encourage them to manage on their own"],
+    consequences: [
+        { parentStress: 20, childHappiness: 5, parentingConfidence: 10, childEducation: 20, finances: 0, familyHarmony: 5, workLifeBalance: -10, childSocialSkills: 0, parentMentalHealth: -10, childDevelopment: 15 },
+        { parentStress: -15, childHappiness: 10, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: 0, childDevelopment: 5 }
+    ],
+    nextQuestion: [65, 66]
+},
+{
+    text: "Your child wants to learn a musical instrument. Do you...",
+    choices: ["Encourage them to take lessons", "Suggest they focus on academics"],
+    consequences: [
+        { parentStress: -10, childHappiness: 20, parentingConfidence: 10, childEducation: 0, finances: -50, familyHarmony: 5, workLifeBalance: 0, childSocialSkills: 10, parentMentalHealth: 5, childDevelopment: 15 },
+        { parentStress: 15, childHappiness: -10, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: -5, childDevelopment: 5 }
+    ],
+    nextQuestion: [67, 68]
+},
+{
+    text: "Your child is feeling anxious about a school presentation. Do you...",
+    choices: ["Help them prepare", "Encourage them to practice alone"],
+    consequences: [
+        { parentStress: 15, childHappiness: 10, parentingConfidence: 10, childEducation: 20, finances: 0, familyHarmony: 5, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: 5, childDevelopment: 10 },
+        { parentStress: -20, childHappiness: -5, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: -5, childDevelopment: 5 }
+    ],
+    nextQuestion: [69, 70]
+},
+{
+    text: "Your child wants to go to a friend's house for a sleepover. Do you...",
+    choices: ["Let them go", "Say they are too young"],
+    consequences: [
+        { parentStress: 10, childHappiness: 20, parentingConfidence: 10, childEducation: 0, finances: 0, familyHarmony: 5, workLifeBalance: 0, childSocialSkills: 15, parentMentalHealth: 5, childDevelopment: 10 },
+        { parentStress: -15, childHappiness: -10, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: -5, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: -5, childDevelopment: 5 }
+    ],
+    nextQuestion: [71, 72]
+},
+{
+    text: "Your child is upset about a friend not inviting them to a party. Do you...",
+    choices: ["Talk to them about it", "Encourage them to make new friends"],
+    consequences: [
+        { parentStress: 15, childHappiness: 5, parentingConfidence: 10, childEducation: 0, finances: 0, familyHarmony: 5, workLifeBalance: 0, childSocialSkills: 10, parentMentalHealth: 5, childDevelopment: 10 },
+        { parentStress: -20, childHappiness: -5, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: -5, childDevelopment: 5 }
+    ],
+    nextQuestion: [73, 74]
+},
+{
+    text: "Your child wants to wear something you think is inappropriate. Do you...",
+    choices: ["Let them express themselves", "Set strict clothing rules"],
+    consequences: [
+        { parentStress: 10, childHappiness: 15, parentingConfidence: 10, childEducation: 0, finances: 0, familyHarmony: 5, workLifeBalance: 0, childSocialSkills: 10, parentMentalHealth: 5, childDevelopment: 10 },
+        { parentStress: -15, childHappiness: -10, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: -5, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: -5, childDevelopment: 5 }
+    ],
+    nextQuestion: [75, 76]
+},
+{
+    text: "Your child is feeling left out at school. Do you...",
+    choices: ["Talk to the teacher", "Encourage them to join new activities"],
+    consequences: [
+        { parentStress: -20, childHappiness: -10, parentingConfidence: 10, childEducation: 0, finances: 0, familyHarmony: -5, workLifeBalance: -10, childSocialSkills: 5, parentMentalHealth: -10, childDevelopment: 5 },
+        { parentStress: 15, childHappiness: 5, parentingConfidence: 5, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 0, childSocialSkills: 10, parentMentalHealth: 0, childDevelopment: 5 }
+    ],
+    nextQuestion: [77, 78]
+},
+{
+    text: "Congratulations! You've successfully balanced your child's development and your own well-being. Your parenting journey has been a success!",
+    choices: ["Start a New Journey", "End Game"],
+    consequences: [
+        { parentStress: 0, childHappiness: 0, parentingConfidence: 0, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: 0, childDevelopment: 0 },
+        { parentStress: 0, childHappiness: 0, parentingConfidence: 0, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: 0, childDevelopment: 0 }
+    ],
+    nextQuestion: [0, -1]
+},
+{
+    text: "The challenges of parenting have become overwhelming. Remember that every parent faces difficulties, and it's okay to start fresh.",
+    choices: ["Try Again", "Take a Break"],
+    consequences: [
+        { parentStress: 0, childHappiness: 0, parentingConfidence: 0, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: 0, childDevelopment: 0 },
+        { parentStress: 0, childHappiness: 0, parentingConfidence: 0, childEducation: 0, finances: 0, familyHarmony: 0, workLifeBalance: 0, childSocialSkills: 0, parentMentalHealth: 0, childDevelopment: 0 }
+    ],
+    nextQuestion: [0, -1]
+}];
