@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PhD Life Simulator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="stats-section">
+            <h1 class="game-title">PhD Life Simulator</h1>
+            <div class="stats-grid">
+                <div class="stat-container stress">
+                    <div class="stat-label">
+                        <span>Stress</span>
+                        <span id="stress">0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="stress-bar"></div>
+                    </div>
+                </div>
+                <div class="stat-container productivity">
+                    <div class="stat-label">
+                        <span>Productivity</span>
+                        <span id="productivity">0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="productivity-bar"></div>
+                    </div>
+                </div>
+                <div class="stat-container advisorApproval">
+                    <div class="stat-label">
+                        <span>Advisor Approval</span>
+                        <span id="advisorApproval">0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="advisorApproval-bar"></div>
+                    </div>
+                </div>
+                <div class="stat-container knowledge">
+                    <div class="stat-label">
+                        <span>Knowledge</span>
+                        <span id="knowledge">0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="knowledge-bar"></div>
+                    </div>
+                </div>
+                <div class="stat-container funding">
+                    <div class="stat-label">
+                        <span>Funding</span>
+                        <span id="funding">0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="funding-bar"></div>
+                    </div>
+                </div>
+                <div class="stat-container publications">
+                    <div class="stat-label">
+                        <span>Publications</span>
+                        <span id="publications">0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="publications-bar"></div>
+                    </div>
+                </div>
+                <div class="stat-container workLifeBalance">
+                    <div class="stat-label">
+                        <span>Work-Life Balance</span>
+                        <span id="workLifeBalance">0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="workLifeBalance-bar"></div>
+                    </div>
+                </div>
+                <div class="stat-container networkingScore">
+                    <div class="stat-label">
+                        <span>Networking</span>
+                        <span id="networkingScore">0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="networkingScore-bar"></div>
+                    </div>
+                </div>
+                <div class="stat-container mentalHealth">
+                    <div class="stat-label">
+                        <span>Mental Health</span>
+                        <span id="mentalHealth">0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="mentalHealth-bar"></div>
+                    </div>
+                </div>
+                <div class="stat-container researchProgress">
+                    <div class="stat-label">
+                        <span>Research Progress</span>
+                        <span id="researchProgress">0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="researchProgress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="question-section">
+            <p id="question-text"></p>
+            <div class="choice-buttons">
+                <button class="choice-btn" onclick="makeChoice(0)"></button>
+                <button class="choice-btn" onclick="makeChoice(1)"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

@@ -1,2 +1,1 @@
-# parentgame.github.io
-parentgame
+# phdgame
